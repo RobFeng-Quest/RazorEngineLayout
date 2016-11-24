@@ -1,0 +1,53 @@
+@using RazorEngineExample
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+</head>
+<body>
+    <div>
+        <table style="width: 7.5in" align="center">
+            <tr>
+                <td align="center">
+                    <h1>
+                        Sample Report
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%">
+                        <tr>
+                            <td colspan="2">
+                                <b>Model.ModelProperty:</b> @Model.ModelProperty
+                            </td>
+                            <td colspan="2">
+                                <b>Model.SubModel.SubModelPropert:</b> @Model.SubModel.SubModelProperty
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <h1>
+                        Sub-sample Data
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%">
+                        
+
+                        @Include(@Model.SubModelTemplateName, @Model.SubModel, @Model.SubModel.GetType())
+                        @*@Include("part", @Model.SubModel, typeof(RazorEngineExample.SubModel))*@
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
