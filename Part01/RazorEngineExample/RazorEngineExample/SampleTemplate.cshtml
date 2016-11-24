@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <table style="width: 7.5in" align="center">
+        <table style="width: 5.5in" align="center">
             <tr>
                 <td align="center">
                     <h1>
@@ -19,13 +19,14 @@
             <tr>
                 <td>
                     <table style="width: 100%">
+                        <tr class="observation-row">
+                            <b>Model Type:</b> @Model
+                        </tr>
                         <tr>
-                            <td colspan="2">
-                                <b>Model.ModelProperty:</b> @Model.ModelProperty
-                            </td>
-                            <td colspan="2">
-                                <b>Model.SubModel.SubModelPropert:</b> @Model.SubModel.SubModelProperty
-                            </td>
+                            <b>Model.ModelProperty:</b> @Model.ModelProperty
+                        </tr>
+                        <tr>
+                            <b>Model.SubModel.SubModelPropert:</b> @Model.SubModel.SubModelProperty
                         </tr>
                     </table>
                 </td>
@@ -40,10 +41,9 @@
             <tr>
                 <td>
                     <table style="width: 100%">
-                        
 
                         @Include(@Model.SubModelTemplateName, @Model.SubModel, @Model.SubModel.GetType())
-                        @*@Include("part", @Model.SubModel, typeof(RazorEngineExample.SubModel))*@
+                        @*@Include("part")*@
                     </table>
                 </td>
             </tr>
