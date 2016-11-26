@@ -1,0 +1,57 @@
+@using RazorEngine
+@using RazorEngine.Templating
+@using RazorEngineExample
+@inherits HtmlSupportTemplateBase<MyModel>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+</head>
+<body>
+    <div>
+        <table style="width: 5.5in" align="center">
+            <tr>
+                <td align="center">
+                    <h1>
+                        Sample Report
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%">
+                        <tr class="observation-row">
+                            <b>Model Type:</b> @Model
+                        </tr>
+                        <tr>
+                            <b>Model.ModelProperty:</b> @Model.ModelProperty
+                        </tr>
+                        <tr>
+                            <b>Model.RowProperty:</b> @Raw(Model.RawProperty)
+                        </tr>
+                        <tr>
+                            <b>Model.SubModel.SubModelPropert:</b> @Model.SubModel.SubModelProperty
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <h1>
+                        Sub-sample Data
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%">
+
+                        @Include(@Model.SubModelTemplateName, @Model.SubModel, @Model.SubModel.GetType())
+                        @*@Include("part")*@
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
