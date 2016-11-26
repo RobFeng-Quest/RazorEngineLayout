@@ -10,6 +10,8 @@ namespace RazorEngineExample
     {
         public string ModelProperty { get; set; }
 
+        public string RawProperty { get; set; }
+
         public SubModel SubModel { get; set; }
 
         public string SubModelTemplateName { get; set; }

@@ -1,7 +1,7 @@
 @using RazorEngine
 @using RazorEngine.Templating
 @using RazorEngineExample
-@inherits TemplateBase<MyModel>
+@inherits HtmlSupportTemplateBase<MyModel>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
@@ -25,6 +25,9 @@
                         </tr>
                         <tr>
                             <b>Model.ModelProperty:</b> @Model.ModelProperty
+                        </tr>
+                        <tr>
+                            <b>Model.RowProperty:</b> @Raw(Model.RawProperty)
                         </tr>
                         <tr>
                             <b>Model.SubModel.SubModelPropert:</b> @Model.SubModel.SubModelProperty

@@ -1,6 +1,7 @@
 ﻿using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
+using RazorEngine.Text;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,6 +40,8 @@ namespace RazorEngineExample
             config.BaseTemplateType = typeof(TemplateBase<>);
             // Custom template manager http://antaris.github.io/RazorEngine/TemplateManager.html
             //config.TemplateManager = new MyTemplateManager();
+            //config.EncodedStringFactory = new RawStringFactory(); // Raw string encoding.
+            config.BaseTemplateType = typeof(HtmlSupportTemplateBase<>);
 
             using (var service = RazorEngineService.Create(config))
             {
@@ -65,7 +68,8 @@ namespace RazorEngineExample
             var result = service.Run("template", typeof(MyModel), new MyModel
             {
                 SubModelTemplateName = "part",
-                ModelProperty = "model1",
+                ModelProperty = "model1<@><b>rob</b></@>.com &lt;",
+                RawProperty = "model1<@><b>rob</b></@>.com &lt;",
                 SubModel = new SubModel { SubModelProperty = "submodel2" }
             });
 

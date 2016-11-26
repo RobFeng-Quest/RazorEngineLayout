@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HtmlSupportTemplateBase.cs" />
     <Compile Include="MyModel.cs" />
     <Compile Include="SubModel.cs" />
     <Page Include="MainWindow.xaml">
